@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { CiBookmark } from 'react-icons/ci';
 
 const Blog = ({ blog, handleAddToBookmark, handleMarkAsRead }) => {
-     const { title, cover, reading_time, author_img, author, posted_date, hashtags } = blog;
+     const {id, title, cover, reading_time, author_img, author, posted_date, hashtags } = blog;
 
      return (
           <div className='mb-20 space-y-4'>
@@ -32,13 +32,13 @@ const Blog = ({ blog, handleAddToBookmark, handleMarkAsRead }) => {
                </p>
                <button
                     className='underline text-[#6047EC] my-4 font-semibold'
-                    onClick={() => handleMarkAsRead(reading_time)}
+                    onClick={() => handleMarkAsRead (id, reading_time)}
                >Mark as read</button>
           </div>
      );
 };
 
-Blog.PropTypes = {
+Blog.propTypes = {
      blog: PropTypes.object.isRequired,
      handleAddToBookmark: PropTypes.func,
      handleMarkAsRead: PropTypes.func
